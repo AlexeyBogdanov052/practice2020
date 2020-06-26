@@ -1,4 +1,4 @@
-package TaskEntity;
+package domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ListTasks {
+public class TaskEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -16,9 +16,9 @@ public class ListTasks {
     private Boolean done;
     private String date;
 
-    protected ListTasks() {}
+    protected TaskEntity() {}
 
-    public ListTasks(long parent_id, String tittle, Boolean done, String date) {
+    public TaskEntity(long parent_id, String tittle, Boolean done, String date) {
         this.parent_id = parent_id;
         this.tittle = tittle;
         this.done = done;
