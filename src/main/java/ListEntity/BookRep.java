@@ -1,12 +1,15 @@
 package ListEntity;
 
 import java.util.List;
-import ListEntity.ListBooks;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface ListRep extends CrudRepository<ListBooks, Long>{
+public interface BookRep extends CrudRepository<ListBooks, Long>{
 
     List<ListBooks> findAll();
+
+    ListBooks deleteById(long id);
+
+    ListBooks findById(long id);
 }
 
