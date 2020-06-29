@@ -10,20 +10,29 @@ public class ListEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String name;
 
     protected ListEntity() {}
 
     public ListEntity(String name) {
+        this.id = id;
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return String.format(
-                "ListBooks[id=%d, name='%s']",
-                id, name);
+    public void setId(Long id){
+        this.id = id;
     }
 
+    public Long getId(){
+        return id;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return name;
+    }
 }
