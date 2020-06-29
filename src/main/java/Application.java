@@ -20,7 +20,7 @@ public class Application {
         books.save(new ListEntity("Домашняя работа"));
         books.save(new ListEntity("Дача"));
 
-        tasks.save(new TaskEntity(0, "Починить утюг", false, "21.11"));
+        tasks.save(new TaskEntity(0, "Починить утюг"));
 
         Iterable<ListEntity> allbooks = books.findAll();
         System.out.println("-------------------------------");
