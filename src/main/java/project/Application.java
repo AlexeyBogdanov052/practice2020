@@ -23,7 +23,6 @@ public class Application {
         books.save(new ListEntity("Домашняя работа"));
         books.save(new ListEntity("Дача"));
 
-
         List<ListEntity> allbooks = books.findAll();
         System.out.println("-------------------------------");
         for (ListEntity j : allbooks) {
