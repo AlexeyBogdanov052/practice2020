@@ -7,10 +7,11 @@
 </head>
 <body>
     <!-- left sidebar -->
-    <p>Списки:</p>
-    <div class="sidebar" th:each="list: ${lists}">
-
-        <p th:utext="${list.getName()}"></p>
+    <div class="sidebar">
+        <p>Списки:</p>
+        <div th:each="list: ${lists}">
+            <a th:href="@{/list/{id}(id=${list.getId()})}" th:utext="${list.getName()}"></a>
+        </div>
     </div>
 </body>
 </html>

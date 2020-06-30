@@ -30,15 +30,15 @@ public class IndexView {
         return "index";
     }
 
-   /* @RequestMapping(value = {"/list/{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/list/{id}"}, method = RequestMethod.GET)
     public String getIndex(Model model, @PathVariable long id){
         Map<Long, ListEntity> lists = getLists();
 
-        model.addAttribute("Lists", lists.values());
+        model.addAttribute("lists", lists.values());
         model.addAttribute("currentList", lists.get(null));
 
         return "index";
-    }*/
+    }
 
     private Map<Long, ListEntity> getLists(){
         Map<Long, ListEntity> result = new HashMap<>();
