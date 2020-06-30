@@ -2,9 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>MyNotes</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset = "utf-8">
+    <link rel = "stylesheet" href="/style.css">
 </head>
 <body>
-<p th:text="Hello" />
+    <!-- left sidebar -->
+    <div class="sidebar" th:each="list: ${lists}">
+
+        <a th:href="@{/list/{id}{id=${list.getId()}}}" th:utext="${list.getName()}"></a>
+    </div>
 </body>
 </html>

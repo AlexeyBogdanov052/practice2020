@@ -28,9 +28,5 @@ public class Application {
         for (ListEntity j : allbooks) {
             System.out.println(j.getName());
         }
-        System.out.println();
-
-        System.out.println(books.findById(1L).getName());
-        System.out.println();
     }
 }
