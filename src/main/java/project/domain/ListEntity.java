@@ -13,9 +13,13 @@ public class ListEntity {
     private Long id;
     private String name;
 
-    protected ListEntity() {}
+    public ListEntity() {}
 
     public ListEntity(String name) {
+        this (null, name);
+    }
+
+    public ListEntity(Long id, String name) {
         this.id = id;
         this.name = name;
     }

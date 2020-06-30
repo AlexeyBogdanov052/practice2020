@@ -20,8 +20,10 @@ public class Application {
         ListRep books = context.getBean(ListRep.class);
         TaskRep tasks = context.getBean(TaskRep.class);
 
-        books.save(new ListEntity("Домашняя работа"));
-        books.save(new ListEntity("Дача"));
-        books.save(new ListEntity("List3"));
+        books.save(new ListEntity(1L,"Домашняя работа"));
+        books.save(new ListEntity(2L,"Дача"));
+        books.save(new ListEntity(3L,"List3"));
+
+        //tasks.save(new TaskEntity(1L,"Починить утюг"));
     }
 }

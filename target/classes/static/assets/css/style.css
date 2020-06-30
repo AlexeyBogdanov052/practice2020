@@ -4,6 +4,7 @@
      position: fixed;
      height:100%;
      font-size: 18px;
+     overflow: scroll;
 }
 
 .sidebar a {

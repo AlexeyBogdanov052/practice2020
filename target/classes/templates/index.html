@@ -12,6 +12,7 @@
         <div th:each="list: ${lists}">
             <a th:href="@{/list/{id}(id=${list.getId()})}" th:utext="${list.getName()}"></a>
         </div>
+        <a th:href="@{/addlist}">Add new book</a>
     </div>
 </body>
 </html>

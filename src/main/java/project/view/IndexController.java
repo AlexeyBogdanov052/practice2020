@@ -16,7 +16,7 @@ import project.domain.ListEntity;
 import project.domain.TaskEntity;
 
 @Controller
-public class IndexView {
+public class IndexController {
     @Autowired
     private ListRep listRep;
 
@@ -43,8 +43,6 @@ public class IndexView {
     private Map<Long, ListEntity> getLists(){
         Map<Long, ListEntity> result = new HashMap<>();
         Iterable<ListEntity> lists = listRep.findAll();
-
-        //result.put(null, new ListEntity("Все"));
 
         for (ListEntity entity: lists) {
             result.put(entity.getId(), entity);
