@@ -3,13 +3,14 @@
 <head>
     <title>MyNotes</title>
     <meta charset = "utf-8">
-    <link rel = "stylesheet" href="/style.css">
+    <link rel = "stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <!-- left sidebar -->
+    <p>Списки:</p>
     <div class="sidebar" th:each="list: ${lists}">
 
-        <a th:href="@{/list/{id}{id=${list.getId()}}}" th:utext="${list.getName()}"></a>
+        <p th:utext="${list.getName()}"></p>
     </div>
 </body>
 </html>
