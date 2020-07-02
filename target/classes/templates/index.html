@@ -8,7 +8,7 @@
 <body>
     <!-- left sidebar -->
     <div class="sidebar">
-        <img src="/assets/img/logo2.png">
+        <img src="/assets/img/logo2.png" align="center">
         <div th:each="list: ${lists}">
             <a th:href="@{/list/{id}(id=${list.getId()})}" th:utext="${list.getName()}"></a>
         </div>

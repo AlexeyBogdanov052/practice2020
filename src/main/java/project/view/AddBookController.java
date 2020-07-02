@@ -26,11 +26,8 @@ public class AddBookController {
     @RequestMapping(value={"/addlist"}, method=RequestMethod.POST)
     public String listSubmit(@ModelAttribute ListEntity addlist, Model model) {
         if (StringUtils.hasText(addlist.getName())){
-            ListEntity result = listRep.save(new ListEntity(addlist.getName()));
-            Long id = result.getId();
-
-            //return "redirect:/list/" + id;
-        }
+           listRep.save(new ListEntity(addlist.getName()));
+        }    
 
         return "redirect:/list";
     }
