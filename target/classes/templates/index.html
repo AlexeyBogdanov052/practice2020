@@ -8,11 +8,11 @@
 <body>
     <!-- left sidebar -->
     <div class="sidebar">
-        <p>Списки:</p>
+        <img src="/assets/img/logo2.png">
         <div th:each="list: ${lists}">
             <a th:href="@{/list/{id}(id=${list.getId()})}" th:utext="${list.getName()}"></a>
         </div>
-        <a th:href="@{/addlist}">Add new book</a>
+        <a th:href="@{/addlist}">Add new book...</a>
     </div>
 </body>
 </html>

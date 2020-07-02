@@ -8,9 +8,8 @@
 <body align="center">
 <h1>Добавить новую книгу</h1>
 <form action="#" th:action="@{/addlist}" th:object="${addlist}" method="post">
-    <p>Id: <input type="text" th:field="*{id}" /></p>
     <p>Название: <input type="text" th:field="*{name}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <p><input type="submit" value="Добавить" /> </p>
 </form>
 </body>
 </html>
