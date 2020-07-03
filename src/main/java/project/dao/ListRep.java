@@ -7,10 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ListRep extends CrudRepository<ListEntity, Long>{
 
-    List<ListEntity> findAll();
+    /*List<ListEntity> findAll();
 
     void deleteById(long id);
 
-    ListEntity findById(long id);
+    ListEntity findById(long id);*/
 }
 

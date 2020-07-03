@@ -35,7 +35,7 @@ public class IndexController {
         Map<Long, ListEntity> lists = getLists();
 
         model.addAttribute("lists", lists.values());
-        model.addAttribute("currentList", lists.get(null));
+        model.addAttribute("currentList", lists.get(id));
 
         return "index";
     }

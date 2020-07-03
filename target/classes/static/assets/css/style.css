@@ -2,6 +2,7 @@
      background: #40E0D0;
      width: 280px;
      position: fixed;
+     font-family: Arial;
      font-size: 18px;
      overflow: scroll;
      overflow-x: hidden;
@@ -23,6 +24,14 @@
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
+}
+
+.main {
+  margin-left: 300px;
+  padding: 0px 10px;
+  height: 100%;
+  width: 400px;
+  font-size: 18px;
 }
 
 body {

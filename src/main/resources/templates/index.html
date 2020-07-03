@@ -3,16 +3,26 @@
 <head>
     <title>MyNotes</title>
     <meta charset = "utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel = "stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <!-- left sidebar -->
     <div class="sidebar">
-        <img src="/assets/img/logo2.png" align="center">
+        <img src="/assets/img/logo2.png">
         <div th:each="list: ${lists}">
             <a th:href="@{/list/{id}(id=${list.getId()})}" th:utext="${list.getName()}"></a>
         </div>
-        <a th:href="@{/addlist}">Add new book...</a>
+        <a th:href="@{/addlist}">Add new topic...</a>
+    </div>
+
+    <!-- content -->
+    <div class="main" align="center">
+        <h1>Tasks</h1>
+        <h1 th:utext="${currentList.getName()}"></h1>
+
+        <button type="button" class="btn btn-outline-danger">Remove topic</button>
+
     </div>
 </body>
 </html>

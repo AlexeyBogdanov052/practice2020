@@ -10,8 +10,8 @@ public class TaskEntity {
 
     @Id
     @GeneratedValue
-    private long id;
-    private long parent_id;
+    private Long id;
+    private Long parent_id;
     private String tittle;
     private String discription;
     private Boolean done;
@@ -24,8 +24,8 @@ public class TaskEntity {
 
     public TaskEntity() {}
 
-    public TaskEntity(long parent_id, String tittle) {
-        this(null, parent_id, tittle, "", false, null, null, null);
+    public TaskEntity(Long parent_id, String tittle) {
+        this(null, parent_id, tittle, null, false, null, null, null);
 
         LocalDateTime currentDataTime = LocalDateTime.now();
         this.createDate = Date.from(currentDataTime.atZone(ZoneId.systemDefault()).toInstant());

@@ -29,7 +29,7 @@ public class AddBookController {
            listRep.save(new ListEntity(addlist.getName()));
         }    
 
-        return "redirect:/list";
+        return "redirect:/";
     }
 
 }

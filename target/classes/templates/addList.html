@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handing Form Submission</title>
+    <title>Add book</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel = "stylesheet" href="/assets/css/style.css">
 </head>
 <body align="center">
-<h1>Добавить новую книгу</h1>
-<form action="#" th:action="@{/addlist}" th:object="${addlist}" method="post">
-    <p>Название: <input type="text" th:field="*{name}" /></p>
-    <p><input type="submit" value="Добавить" /> </p>
-</form>
+    <h1>Добавить новую книгу</h1>
+    <form action="#" th:action="@{/addlist}" th:object="${addlist}" method="post">
+        <p>Название: <input type="text" th:field="*{name}" /></p>
+        <p><input type="submit" value="Add Topic" /> </p>
+    </form>
 </body>
 </html>
