@@ -7,8 +7,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import project.dao.ListRep;
 import project.domain.ListEntity;
 
@@ -24,7 +22,7 @@ public class AddBookController {
     }
 
     @RequestMapping(value={"/addlist"}, method=RequestMethod.POST)
-    public String listSubmit(@ModelAttribute ListEntity addlist, Model model) {
+    public String listSubmit(@ModelAttribute ListEntity addlist) {
         if (StringUtils.hasText(addlist.getName())){
            listRep.save(new ListEntity(addlist.getName()));
         }    

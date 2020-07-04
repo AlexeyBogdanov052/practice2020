@@ -20,8 +20,9 @@
     <div class="main" align="center">
         <h1>Tasks</h1>
         <h1 th:utext="${currentList.getName()}"></h1>
-
-        <button type="button" class="btn btn-outline-danger">Remove topic</button>
+        <form action="#" th:action="@{/list/{id}/delete (id=${currentList.getId()})}">
+            <button type="submit" class="btn btn-outline-danger">Remove this topic</button>
+        </form>
 
     </div>
 </body>

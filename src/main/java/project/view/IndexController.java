@@ -6,10 +6,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import project.dao.ListRep;
 import project.domain.ListEntity;
@@ -48,5 +45,11 @@ public class IndexController {
             result.put(entity.getId(), entity);
         }
         return result;
+    }
+
+    @RequestMapping(value = {"/list/{id}/delete"})
+    public String removeList(@PathVariable Long id) {
+        listRep.deleteById(id);
+        return "redirect:/list/1";
     }
 }

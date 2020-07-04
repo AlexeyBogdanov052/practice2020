@@ -3,7 +3,9 @@
 <head>
     <title>MyNotes</title>
     <meta charset = "utf-8">
+    <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    -->
     <link rel = "stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -19,9 +21,10 @@
     <!-- content -->
     <div class="main" align="center">
         <h1>Tasks</h1>
-        <h1 th:utext="${currentList.getName()}"></h1>
-
-        <button type="button" class="btn btn-outline-danger">Remove topic</button>
+        <!--<h1 th:utext="${currentList.getName()}"></h1>-->
+        <form action="#" th:action="@{/list/{id}/delete (id=${currentList.getId()})}">
+            <button type="submit" class="btn btn-outline-danger">Remove this topic</button>
+        </form>
 
     </div>
 </body>

@@ -6,10 +6,10 @@
     <link rel = "stylesheet" href="/assets/css/style.css">
 </head>
 <body align="center">
-    <h1>Добавить новую книгу</h1>
+    <h1>Add new topic</h1>
     <form action="#" th:action="@{/addlist}" th:object="${addlist}" method="post">
-        <p>Название: <input type="text" th:field="*{name}" /></p>
-        <p><input type="submit" value="Add Topic" /> </p>
+        <p>Name: <input type="text" th:field="*{name}" /></p>
+        <p><input type="submit" value="Submit" /> </p>
     </form>
 </body>
 </html>
