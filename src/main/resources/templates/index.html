@@ -3,6 +3,7 @@
 <head>
     <title>MyNotes</title>
     <meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel = "stylesheet" href="/assets/css/style.css">
@@ -34,8 +35,8 @@
             <label th:utext="${task.getTitle()}"></label>
         </div>
 
-        <form metod="post" action="/list/task">
-            <input type="hidden" name="parent_id" th:value="${currentList.getId()}">
+        <form action="/list/addtask" metod="POST">
+            <input type="hidden" name="parent_id" th:value="${currentList.id}">
             <input type="text" name="title">
             <button type="submit" class="btn btn-outline-success">Add Task</button>
         </form>

@@ -35,13 +35,14 @@ public class IndexController {
     }
 
     @RequestMapping(value = {"/list/{id}"}, method = RequestMethod.GET)
-    public String getIndex(Model model, @PathVariable long id){
+    public String getIndex(Model model, @PathVariable Long id){
         Map<Long, ListEntity> lists = getLists();
-        List<TaskEntity> tasks = taskRep.findByParent(id);
+        Map<Long, TaskEntity> tasks = getTasks(id);
+        //List<TaskEntity> tasks = taskRep.findByParent(id);
 
         model.addAttribute("lists", lists.values());
         model.addAttribute("currentList", lists.get(id));
-        model.addAttribute("tasks", tasks);
+        model.addAttribute("tasks", tasks.values());
 
         return "index";
     }
@@ -58,16 +59,35 @@ public class IndexController {
         return result;
     }
 
+    private Map<Long, TaskEntity> getTasks(Long id){
+        Map<Long, TaskEntity> result = new HashMap<>();
+        Iterable<TaskEntity> tasks = taskRep.findAll();
+
+        for (TaskEntity entity: tasks) {
+            if (entity.getParentId() == id)
+                result.put(entity.getId(), entity);
+        }
+        return result;
+    }
+
     @RequestMapping(value = {"/list/{id}/delete"})
     public String removeList(@PathVariable Long id) {
         listRep.deleteById(id);
         return "redirect:/list";
     }
 
-    @RequestMapping(value={"/list/task"}, method=RequestMethod.POST)
-    public String addTask(@ModelAttribute TaskEntity task, Model model) {
-        taskRep.save(new TaskEntity(task.getParentId(), task.getTitle()));
+    /*@RequestMapping(value={"/list/addtask"}, method = RequestMethod.GET)
+    public String taskForm(Model model) {
+        model.addAttribute("addtask", new TaskEntity());
+        return "addtask";
+    }*/
 
-        return "redirect:/list" + task.getParentId();
+    @RequestMapping(value={"/list/addtask"}, method=RequestMethod.POST)
+    public String taskSubmit(@ModelAttribute TaskEntity addtask, Model model){
+        System.out.println(addtask.getParentId());
+        System.out.println(addtask.getTitle());
+        taskRep.save(new TaskEntity(addtask.getParentId(), addtask.getTitle()));
+
+        return "redirect:/list/" /*+ addtask.getParentId()*/;
     }
 }
