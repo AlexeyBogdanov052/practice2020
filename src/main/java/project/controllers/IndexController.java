@@ -76,18 +76,25 @@ public class IndexController {
         return "redirect:/list";
     }
 
-    /*@RequestMapping(value={"/list/addtask"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/list/addtask", method = RequestMethod.GET)
     public String taskForm(Model model) {
         model.addAttribute("addtask", new TaskEntity());
         return "addtask";
-    }*/
+    }
 
-    @RequestMapping(value={"/list/addtask"}, method=RequestMethod.POST)
-    public String taskSubmit(@ModelAttribute TaskEntity addtask, Model model){
+    @RequestMapping(value = {"/list/addtask"}, method = RequestMethod.POST)
+    public String categorySubmit(@ModelAttribute TaskEntity addtask, Model model){
         System.out.println(addtask.getParentId());
         System.out.println(addtask.getTitle());
         taskRep.save(new TaskEntity(addtask.getParentId(), addtask.getTitle()));
+        return "redirect:/list";
+    }
 
-        return "redirect:/list/" /*+ addtask.getParentId()*/;
+    @RequestMapping(value = {"/list/{id}/add"})
+    public String addTask(@ModelAttribute TaskEntity addtask, Model model, @PathVariable Long id) {
+        addtask.setParentId(id);
+        addtask.setId(null);
+        taskRep.save(new TaskEntity(addtask.getParentId(), addtask.getTitle()));
+        return "redirect:/list" + addtask.getParentId();
     }
 }

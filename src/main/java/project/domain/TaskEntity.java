@@ -12,7 +12,7 @@ public class TaskEntity {
     @Id
     @GeneratedValue
     private Long id;
-    private Long parent_id;
+    private Long parent;
     private String title;
     private String discription;
     private Boolean done;
@@ -25,18 +25,18 @@ public class TaskEntity {
 
     public TaskEntity() {}
 
-    public TaskEntity(Long parent_id, String title) {
-        this(null, parent_id, title, null, false, null, null, null);
+    public TaskEntity(Long parent, String title) {
+        this(null, parent, title, null, false, null, null, null);
 
-        LocalDateTime currentDataTime = LocalDateTime.now();
+        /*LocalDateTime currentDataTime = LocalDateTime.now();
         this.createDate = Date.from(currentDataTime.atZone(ZoneId.systemDefault()).toInstant());
-        this.updateDate = createDate;
+        this.updateDate = createDate;*/
     }
 
-    public TaskEntity(Long id, Long parent_id, String title, String discription, Boolean done,
+    public TaskEntity(Long id, Long parent, String title, String discription, Boolean done,
                       Date createDate, Date updateDate, Date date) {
         this.id = id;
-        this.parent_id = parent_id;
+        this.parent = parent;
         this.title = title;
         this.discription = discription;
         this.done = done;
@@ -53,12 +53,12 @@ public class TaskEntity {
         return id;
     }
 
-    public void setParentId(Long parent_id){
-        this.parent_id = parent_id;
+    public void setParentId(Long parent){
+        this.parent = parent;
     }
 
     public Long getParentId(){
-        return parent_id;
+        return parent;
     }
 
     public void setTitle(String tittle){
