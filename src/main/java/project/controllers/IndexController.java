@@ -89,12 +89,4 @@ public class IndexController {
         taskRep.save(new TaskEntity(addtask.getParentId(), addtask.getTitle()));
         return "redirect:/list";
     }
-
-    @RequestMapping(value = {"/list/{id}/add"})
-    public String addTask(@ModelAttribute TaskEntity addtask, Model model, @PathVariable Long id) {
-        addtask.setParentId(id);
-        addtask.setId(null);
-        taskRep.save(new TaskEntity(addtask.getParentId(), addtask.getTitle()));
-        return "redirect:/list" + addtask.getParentId();
-    }
 }

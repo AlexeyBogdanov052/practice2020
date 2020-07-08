@@ -9,8 +9,8 @@ public interface ListRep extends CrudRepository<ListEntity, Long>{
 
     /*List<ListEntity> findAll();
 
-    void deleteById(long id);
+    void deleteById(long id);*/
 
-    ListEntity findById(long id);*/
+    ListEntity findById(long id);
 }
 
