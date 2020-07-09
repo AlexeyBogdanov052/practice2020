@@ -64,7 +64,7 @@ public class IndexController {
         Iterable<TaskEntity> tasks = taskRep.findAll();
 
         for (TaskEntity entity: tasks) {
-            if (entity.getParentId() == id)
+            if (entity.getParent() == id)
                 result.put(entity.getId(), entity);
         }
         return result;
@@ -84,9 +84,7 @@ public class IndexController {
 
     @RequestMapping(value = {"/list/addtask"}, method = RequestMethod.POST)
     public String categorySubmit(@ModelAttribute TaskEntity addtask, Model model){
-        System.out.println(addtask.getParentId());
-        System.out.println(addtask.getTitle());
-        taskRep.save(new TaskEntity(addtask.getParentId(), addtask.getTitle()));
-        return "redirect:/list";
+        taskRep.save(new TaskEntity(addtask.getParent(), addtask.getTitle()));
+        return "redirect:/list/" + addtask.getParent();
     }
 }

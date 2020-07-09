@@ -22,7 +22,7 @@ public class AddBookController {
     }
 
     @RequestMapping(value={"/addlist"}, method=RequestMethod.POST)
-    public String listSubmit(@ModelAttribute ListEntity addlist) {
+    public String listSubmit(@ModelAttribute ListEntity addlist, Model model) {
         if (StringUtils.hasText(addlist.getName())){
            listRep.save(new ListEntity(addlist.getName()));
         }    

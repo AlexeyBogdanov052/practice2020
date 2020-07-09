@@ -9,10 +9,9 @@
 <body>
     <h1 align="center">Update topic</h1>
 
-    <form action="#" th:action="@{/list/{id}/update}" align="center">
-       <!-- <p>New name: <input type="text" th:field="*{name}" /></p>
-        <p><button type="submit" class="btn btn-outline-success">Submit</button> </p>/-->
-        <p>hello</p>
+    <form action="#" th:action="@{/list/{id}/update}" th:object="${list}" method="post" align="center">
+        <p>New name: <input type="text" th:field="*{name}" /></p>
+        <p><button type="submit" class="btn btn-outline-success">Submit</button> </p>
     </form>
 
 </body>

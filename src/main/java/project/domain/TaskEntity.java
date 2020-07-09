@@ -53,11 +53,11 @@ public class TaskEntity {
         return id;
     }
 
-    public void setParentId(Long parent){
+    public void setParent(Long parent){
         this.parent = parent;
     }
 
-    public Long getParentId(){
+    public Long getParent(){
         return parent;
     }
 
