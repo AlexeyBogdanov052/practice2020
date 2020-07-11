@@ -26,12 +26,10 @@
   color: white;
 }
 
-.main {
-  margin-left: 300px;
-  padding: 0px 10px;
-  height: 100%;
-  width: 400px;
-  font-size: 18px;
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
 }
 
 body {

@@ -38,7 +38,6 @@ public class IndexController {
     public String getIndex(Model model, @PathVariable Long id){
         Map<Long, ListEntity> lists = getLists();
         Map<Long, TaskEntity> tasks = getTasks(id);
-        //List<TaskEntity> tasks = taskRep.findByParent(id);
 
         model.addAttribute("lists", lists.values());
         model.addAttribute("currentList", lists.get(id));
@@ -74,6 +73,14 @@ public class IndexController {
     public String removeList(@PathVariable Long id) {
         listRep.deleteById(id);
         return "redirect:/list";
+    }
+
+    @RequestMapping(value = {"/task/{taskId}/delete"})
+    public String removeTask(@PathVariable Long taskId) {
+        TaskEntity task = taskRep.findById((long)taskId);
+        Long id = task.getParent();
+        taskRep.deleteById(taskId);
+        return "redirect:/list/" + id;
     }
 
     @RequestMapping(value = "/list/addtask", method = RequestMethod.GET)

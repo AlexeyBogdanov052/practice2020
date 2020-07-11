@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface TaskRep extends CrudRepository<TaskEntity, Long>{
 
-    //List<TaskEntity> findByParent(Long id);
+    TaskEntity findById(long id);
 }
