@@ -35,15 +35,7 @@
                 </form>
             </div>
         </div>
-        <!--
-        <a th:href="@{/list/{id}/update (id=${currentList.getId()})}">
-            <button type="button" class="btn btn-outline-primary">Update topic</button>
-        </a>
 
-         <form action="#" th:action="@{/list/{id}/delete (id=${currentList.getId()})}">
-             <button type="submit" class="btn btn-outline-danger">Remove this topic</button>
-         </form>
-         -->
         <p></p>
 
         <form action="#" th:action="@{/list/addtask}" method="post" >
@@ -53,18 +45,29 @@
         </form>
 
         <p></p>
-
+        <!--
         <div th:each="task: ${tasks}">
             <input type="checkbox">
-            <label th:utext="${task.getTitle()}"></label>
+            <label th:utext="${task.getTitle()}" name="done" th:checked="${task.done}"></label>
         </div>
-
+        -->
         <div th:each="task: ${tasks}">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card text-white bg-secondary mb-3" width="300" style="max-width: 18rem;">
                 <div class="card-header" th:utext="${task.getTitle()}"></div>
                 <div class="card-body">
                     <p class="card-text" th:utext="${task.getDiscription()}"></p>
-                    <a th:href="@{/list/{id}/updateTask/{taskId} (id=${currentList.getId()}, taskId=${task.getId()})}">
+
+                    <div class="alert alert-info" role="alert" th:if="${task.done}">
+                        Task done!
+                    </div>
+                    <div class="alert alert-danger" role="alert" th:unless="${task.done}">
+                        Task not done!
+                    </div>
+
+                    <p class="card-text">Task created in:</p>
+                    <p class="card-text" th:utext="${task.getCreateDate()}"></p>
+
+                    <a th:href="@{/task/{taskId}/update (taskId=${task.getId()})}">
                         <button type="button" class="btn btn-primary">Update task</button>
                     </a>
                     <form action="#" th:action="@{/task/{taskId}/delete (taskId=${task.getId()})}">

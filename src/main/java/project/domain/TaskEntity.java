@@ -28,9 +28,8 @@ public class TaskEntity {
     public TaskEntity(Long parent, String title) {
         this(null, parent, title, null, false, null, null, null);
 
-        /*LocalDateTime currentDataTime = LocalDateTime.now();
+        LocalDateTime currentDataTime = LocalDateTime.now();
         this.createDate = Date.from(currentDataTime.atZone(ZoneId.systemDefault()).toInstant());
-        this.updateDate = createDate;*/
     }
 
     public TaskEntity(Long id, Long parent, String title, String discription, Boolean done,
@@ -89,7 +88,23 @@ public class TaskEntity {
         this.date = date;
     }
 
-    public Date getate(){
+    public Date getDate(){
         return date;
+    }
+
+    public void setCreateDate(Date createDate){
+        this.createDate = createDate;
+    }
+
+    public Date getCreateDate(){
+        return createDate ;
+    }
+
+    public void setUpdateDate(Date updateDate){
+        this.updateDate = updateDate;
+    }
+
+    public Date getUpdateDate(){
+        return updateDate ;
     }
 }
